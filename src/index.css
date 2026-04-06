@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brand palette */
+@layer base {
+  :root {
+    --kx-navy: #021140;
+    --kx-gold: #a57b02;
+    --background: 221 94% 7%;
+    --foreground: 40 24% 94%;
+    --card: 221 85% 16%;
+    --card-foreground: 40 24% 94%;
+    --popover: 221 85% 16%;
+    --popover-foreground: 40 24% 94%;
+    --primary: 43 98% 33%;
+    --primary-foreground: 221 94% 10%;
+    --secondary: 221 70% 18%;
+    --secondary-foreground: 40 24% 92%;
+    --muted: 221 35% 22%;
+    --muted-foreground: 215 20% 68%;
+    --accent: 43 98% 33%;
+    --accent-foreground: 221 94% 10%;
+    --destructive: 0 72% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 221 50% 22%;
+    --input: 221 50% 22%;
+    --ring: 43 98% 33%;
+    --radius: 0.85rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body text-kx-cream antialiased;
+    letter-spacing: -0.015em;
+    background-color: var(--kx-navy);
+    background-image:
+      radial-gradient(ellipse 110% 75% at 0% -5%, rgb(10 40 95 / 0.28), transparent 58%),
+      radial-gradient(ellipse 90% 55% at 100% 5%, rgb(3 18 58 / 0.38), transparent 52%),
+      radial-gradient(ellipse 70% 45% at 50% 105%, rgb(165 123 2 / 0.035), transparent 55%),
+      linear-gradient(168deg, #00040f 0%, #010818 34%, #021140 58%, #010818 100%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: Syne, system-ui, sans-serif;
+    line-height: 1.22;
+    overflow: visible;
+    text-wrap: balance;
+  }
+}
+
+/* Primary CTA — brand gold */
+.kx-btn-solid {
+  color: #021140;
+  background: linear-gradient(135deg, #c49410 0%, #a57b02 48%, #b8890a 100%);
+  box-shadow:
+    0 0 0 1px rgb(165 123 2 / 0.45),
+    0 0 36px -6px rgb(165 123 2 / 0.25);
+}
+
+.kx-btn-solid:hover {
+  filter: brightness(1.06) saturate(1.05);
+}
+
+.kx-main {
+  @apply relative z-[2] flex-1 overflow-x-hidden pt-28 pb-24 md:pt-32 md:pb-32;
+}
+
+.kx-slab {
+  @apply relative rounded-xl border border-white/10 bg-gradient-to-br from-kx-ink/90 to-kx-navy/95 shadow-kx-soft;
+}
+
+.kx-slab-warm {
+  @apply relative overflow-hidden rounded-xl border border-kx-gold/30 bg-gradient-to-br from-kx-ink/90 via-kx-navy/95 to-[#010a24];
+  box-shadow:
+    0 0 0 1px rgb(165 123 2 / 0.12),
+    0 20px 50px -20px rgb(2 17 64 / 0.65);
+}
+
+.kx-prose {
+  @apply font-body text-kx-cream/90;
+  font-size: 1.0625rem;
+  line-height: 1.78;
+}
+
+.kx-prose h2 {
+  @apply font-display mt-12 mb-4 text-2xl font-bold tracking-tight text-kx-cream;
+  line-height: 1.28;
+  overflow: visible;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.kx-prose h3 {
+  @apply font-display mt-8 mb-3 text-xl font-bold text-kx-cream;
+  line-height: 1.3;
+  overflow: visible;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+}
+
+.kx-prose p {
+  @apply mb-5 text-kx-muted;
+}
+
+.kx-prose a {
+  @apply font-semibold text-kx-gold underline decoration-kx-gold/40 underline-offset-4 hover:decoration-kx-gold;
+}
+
+.kx-prose ul,
+.kx-prose ol {
+  @apply my-5 pl-6 text-kx-muted;
+}
+
+.kx-prose li {
+  @apply mb-2;
+}
+
+.kx-prose blockquote {
+  @apply my-8 border-l-4 border-kx-gold/60 pl-6 font-display text-lg italic text-kx-cream/85;
+  line-height: 1.45;
+}
+
+.kx-prose strong {
+  @apply font-semibold text-kx-cream;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Legacy layout footer */
+.geometric-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgb(165 123 2 / 0.45) 40%,
+    rgb(2 17 64 / 0.6) 60%,
+    transparent 100%
+  );
+}
