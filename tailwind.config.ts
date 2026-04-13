@@ -12,9 +12,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        display: ['"Syne"', "system-ui", "sans-serif"],
-        body: ['"DM Sans"', "system-ui", "sans-serif"],
-        arabic: ['"Noto Naskh Arabic"', "serif"],
+        display: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        body: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        arabic: ['"Noto Naskh Arabic"', 'serif'],
       },
       colors: {
         kx: {
@@ -71,6 +71,8 @@ export default {
         kx: "0 24px 80px -12px rgb(2 17 64 / 0.55)",
         "kx-soft": "0 0 60px -10px rgb(165 123 2 / 0.12)",
         "kx-lift": "6px 6px 0 #021140",
+        "kx-glow-gold": "0 0 0 1px rgb(255 255 255 / 0.08), 0 0 48px -10px rgb(212 162 10 / 0.35)",
+        "kx-glow-soft": "0 0 80px -20px rgb(120 60 180 / 0.2)",
       },
       keyframes: {
         "accordion-down": {

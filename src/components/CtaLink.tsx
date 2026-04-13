@@ -24,16 +24,16 @@ export function CtaLink({
   const isExternalUrl = isExternal || /^https?:\/\//i.test(to);
 
   const baseCompact = "rounded-full font-semibold px-6 py-4 shadow-md hover:shadow-lg transition-all";
-  const baseProminent = "rounded-2xl font-semibold px-10 py-6 text-base shadow-lg hover:shadow-xl transition-all focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary";
+  const baseProminent = "rounded-full font-semibold px-10 py-6 text-base shadow-lg hover:shadow-xl transition-all focus-visible:ring-2 focus-visible:ring-offset-2";
 
   const variantStyles = compact
     ? {
-        primary: `${baseCompact} bg-primary text-primary-foreground hover:bg-primary/90`,
-        accent: `${baseCompact} bg-accent text-accent-foreground hover:bg-accent/90`,
+        primary: `${baseCompact} bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground hover:brightness-110`,
+        accent: `${baseCompact} bg-gradient-to-r from-accent to-primary text-primary-foreground hover:brightness-110`,
       }
     : {
-        primary: `${baseProminent} bg-primary text-primary-foreground hover:bg-primary/90 focus-visible:ring-primary`,
-        accent: `${baseProminent} bg-accent text-accent-foreground hover:bg-accent/90 focus-visible:ring-accent`,
+        primary: `${baseProminent} bg-gradient-to-r from-primary via-primary to-accent text-primary-foreground hover:brightness-110 focus-visible:ring-primary`,
+        accent: `${baseProminent} bg-gradient-to-r from-accent to-primary text-primary-foreground hover:brightness-110 focus-visible:ring-accent`,
       };
 
   const buttonClass = `${variantStyles[variant]} ${className}`;

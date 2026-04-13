@@ -3,7 +3,6 @@ import { siteSettings } from './siteSettings'
 import { seo } from './seo'
 import {
   ctaButton,
-  imageCard,
   programListCard,
   textLinkCard,
   iconItem,
@@ -26,7 +25,6 @@ export const schemaTypes = [
   siteSettings,
   seo,
   ctaButton,
-  imageCard,
   programListCard,
   textLinkCard,
   iconItem,

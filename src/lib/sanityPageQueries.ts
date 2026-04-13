@@ -1,7 +1,5 @@
 import { sanityClient } from './sanity'
 
-const imageProjection = `{ _type, asset->{ _id, url }, hotspot, crop }`
-
 export interface CtaButton {
   label: string
   to: string
@@ -33,10 +31,8 @@ export interface AboutPageDoc {
 }
 
 export interface ProgramsPageDoc {
-  eyebrow?: string
   heading?: string
   subheading?: string
-  programCards?: any[]
   seo?: { seoTitle?: string; metaDescription?: string }
 }
 
@@ -59,10 +55,8 @@ export interface ProgramDoc {
   _id: string
   slug: string
   title: string
-  heroEyebrow?: string
   heroSubheading?: string
   heroCta?: CtaButton
-  mainImage?: { asset?: { url?: string } }
   shortDescription?: string
   overview?: string
   keyBenefits?: any[]
@@ -77,7 +71,6 @@ export interface ProgramDoc {
 }
 
 export interface BlogPageDoc {
-  eyebrow?: string
   heading?: string
   subheading?: string
   seo?: { seoTitle?: string; metaDescription?: string }
@@ -99,10 +92,7 @@ export interface BlogPostDoc extends BlogPostListItem {
 const HOMEPAGE_QUERY = `*[_type == "homepage"][0]{
   sections[]{
     ...,
-    cards[]{
-      ...,
-      image ${imageProjection}
-    },
+    cards[]{ ... },
     items[]{ title, description }
   },
   seo{ seoTitle, metaDescription }
@@ -118,23 +108,8 @@ const ABOUT_PAGE_QUERY = `*[_type == "aboutPage"][0]{
 }`
 
 const PROGRAMS_PAGE_QUERY = `*[_type == "programsPage"][0]{
-  eyebrow,
   heading,
   subheading,
-  programCards[]{
-    _type,
-    title,
-    description,
-    link,
-    linkLabel,
-    image ${imageProjection},
-    program->{
-      "slug": slug.current,
-      title,
-      shortDescription,
-      mainImage ${imageProjection}
-    }
-  },
   seo{ seoTitle, metaDescription }
 }`
 
@@ -142,18 +117,15 @@ const PROGRAMS_FOR_LISTING_QUERY = `*[_type == "program" && defined(slug.current
   _id,
   "slug": slug.current,
   title,
-  shortDescription,
-  mainImage ${imageProjection}
+  shortDescription
 }`
 
 const PROGRAM_BY_SLUG_QUERY = `*[_type == "program" && slug.current == $slug][0]{
   _id,
   "slug": slug.current,
   title,
-  heroEyebrow,
   heroSubheading,
   heroCta{ label, to, isExternal, variant },
-  mainImage ${imageProjection},
   shortDescription,
   overview,
   keyBenefits[]{ title, description },
@@ -178,7 +150,7 @@ const PROGRAM_BY_SLUG_QUERY = `*[_type == "program" && slug.current == $slug][0]
   seo{ seoTitle, metaDescription }
 }`
 
-const BLOG_PAGE_QUERY = `*[_type == "blogPage"][0]{ eyebrow, heading, subheading, seo{ seoTitle, metaDescription } }`
+const BLOG_PAGE_QUERY = `*[_type == "blogPage"][0]{ heading, subheading, seo{ seoTitle, metaDescription } }`
 const BLOG_POSTS_QUERY = `*[_type == "blogPost"] | order(publishedAt desc){
   _id, "slug": slug.current, title, excerpt, publishedAt
 }`

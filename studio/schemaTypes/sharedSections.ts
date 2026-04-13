@@ -18,20 +18,7 @@ export const ctaButton = defineType({
   ],
 })
 
-export const imageCard = defineType({
-  name: 'imageCard',
-  title: 'Image Card',
-  type: 'object',
-  fields: [
-    defineField({ name: 'image', type: 'image', title: 'Image / Illustration', options: { hotspot: true } }),
-    defineField({ name: 'title', type: 'string', title: 'Title', validation: (r) => r.required() }),
-    defineField({ name: 'description', type: 'text', title: 'Description', rows: 2 }),
-    defineField({ name: 'link', type: 'string', title: 'Link' }),
-    defineField({ name: 'linkLabel', type: 'string', title: 'Link Label' }),
-  ],
-})
-
-/** Pick a program document — frontend builds `/programs/{slug}` and uses main image. */
+/** Pick a program document — frontend builds `/programs/{slug}`. */
 export const programListCard = defineType({
   name: 'programListCard',
   title: 'Program card (from document)',
@@ -56,13 +43,6 @@ export const programListCard = defineType({
       title: 'Description override',
       rows: 2,
       description: 'Optional. Defaults to the program short description.',
-    }),
-    defineField({
-      name: 'image',
-      type: 'image',
-      title: 'Image override',
-      description: 'Optional. Defaults to the program main image.',
-      options: { hotspot: true },
     }),
     defineField({ name: 'linkLabel', type: 'string', title: 'Link label' }),
   ],

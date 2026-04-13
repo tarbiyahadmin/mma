@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400..700;1,14..32,400..700&family=Noto+Naskh+Arabic:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -43,13 +43,16 @@
 
   body {
     @apply font-body text-kx-cream antialiased;
-    letter-spacing: -0.015em;
-    background-color: var(--kx-navy);
+    letter-spacing: -0.011em;
+    line-height: 1.6;
+    background-color: #020510;
     background-image:
-      radial-gradient(ellipse 110% 75% at 0% -5%, rgb(10 40 95 / 0.28), transparent 58%),
-      radial-gradient(ellipse 90% 55% at 100% 5%, rgb(3 18 58 / 0.38), transparent 52%),
-      radial-gradient(ellipse 70% 45% at 50% 105%, rgb(165 123 2 / 0.035), transparent 55%),
-      linear-gradient(168deg, #00040f 0%, #010818 34%, #021140 58%, #010818 100%);
+      radial-gradient(ellipse 100% 80% at 50% -15%, rgb(80 30 120 / 0.22), transparent 55%),
+      radial-gradient(ellipse 90% 60% at 100% 0%, rgb(165 123 2 / 0.09), transparent 50%),
+      radial-gradient(ellipse 70% 50% at 0% 20%, rgb(30 60 140 / 0.2), transparent 52%),
+      radial-gradient(ellipse 85% 55% at 80% 85%, rgb(120 40 90 / 0.12), transparent 55%),
+      radial-gradient(ellipse 60% 40% at 15% 90%, rgb(165 123 2 / 0.05), transparent 50%),
+      linear-gradient(165deg, #010208 0%, #030a1c 38%, #021140 62%, #010510 100%);
     background-attachment: fixed;
     min-height: 100vh;
   }
@@ -58,10 +61,11 @@
   h2,
   h3,
   h4 {
-    font-family: Syne, system-ui, sans-serif;
-    line-height: 1.22;
+    font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+    line-height: 1.32;
     overflow: visible;
     text-wrap: balance;
+    font-weight: 600;
   }
 }
 
@@ -79,37 +83,73 @@
 }
 
 .kx-main {
-  @apply relative z-[2] flex-1 overflow-x-hidden pt-28 pb-24 md:pt-32 md:pb-32;
+  @apply relative z-[2] flex-1 overflow-x-hidden pb-20 pt-8 md:pb-28 md:pt-12;
+}
+
+/* Framed “canvas” surface (see KineticShell) */
+.kx-frame-surface {
+  position: relative;
+  border-radius: 1.75rem;
+  border: 1px solid rgb(255 255 255 / 0.09);
+  background: linear-gradient(
+    180deg,
+    rgb(3 26 92 / 0.35) 0%,
+    rgb(1 10 36 / 0.72) 42%,
+    rgb(2 8 22 / 0.92) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.07),
+    0 0 0 1px rgb(0 0 0 / 0.35),
+    0 40px 100px -36px rgb(0 0 0 / 0.65),
+    0 0 80px -30px rgb(165 123 2 / 0.12);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 }
 
 .kx-slab {
-  @apply relative rounded-xl border border-white/10 bg-gradient-to-br from-kx-ink/90 to-kx-navy/95 shadow-kx-soft;
+  @apply relative rounded-2xl border border-white/[0.09] bg-gradient-to-br from-white/[0.04] to-transparent shadow-[0_0_0_1px_rgb(255_255_255/0.04),0_24px_60px_-28px_rgb(0_0_0/0.45)];
 }
 
 .kx-slab-warm {
-  @apply relative overflow-hidden rounded-xl border border-kx-gold/30 bg-gradient-to-br from-kx-ink/90 via-kx-navy/95 to-[#010a24];
+  @apply relative overflow-hidden rounded-2xl border border-kx-gold/25 bg-gradient-to-br from-kx-ink/80 via-kx-navy/90 to-[#050a1c];
   box-shadow:
-    0 0 0 1px rgb(165 123 2 / 0.12),
-    0 20px 50px -20px rgb(2 17 64 / 0.65);
+    0 0 0 1px rgb(165 123 2 / 0.1),
+    0 24px 60px -24px rgb(2 17 64 / 0.55),
+    0 0 60px -20px rgb(165 123 2 / 0.08);
+}
+
+/* Hero: gradient occupies ~upper half of glyph height; lower half reads as solid cream */
+.kx-hero-gradient-text {
+  background: linear-gradient(
+    180deg,
+    rgb(255 222 205) 0%,
+    rgb(255 200 165) 18%,
+    rgb(212 162 10) 44%,
+    rgb(242 239 230) 50%,
+    rgb(242 239 230) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .kx-prose {
   @apply font-body text-kx-cream/90;
-  font-size: 1.0625rem;
-  line-height: 1.78;
+  font-size: 1.075rem;
+  line-height: 1.82;
 }
 
 .kx-prose h2 {
-  @apply font-display mt-12 mb-4 text-2xl font-bold tracking-tight text-kx-cream;
-  line-height: 1.28;
+  @apply font-display mt-12 mb-4 text-[1.85rem] font-semibold tracking-tight text-kx-cream sm:text-3xl md:text-4xl lg:text-5xl;
+  line-height: 1.22;
   overflow: visible;
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;
 }
 
 .kx-prose h3 {
-  @apply font-display mt-8 mb-3 text-xl font-bold text-kx-cream;
-  line-height: 1.3;
+  @apply font-display mt-8 mb-3 text-[1.35rem] font-semibold tracking-tight text-kx-cream sm:text-2xl md:text-3xl lg:text-4xl;
+  line-height: 1.26;
   overflow: visible;
   padding-top: 0.125rem;
   padding-bottom: 0.125rem;

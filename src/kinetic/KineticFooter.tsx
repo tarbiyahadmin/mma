@@ -43,9 +43,9 @@ export function KineticFooter() {
   };
 
   return (
-    <footer className="relative z-[2] mt-auto overflow-hidden border-t border-kx-gold/25 bg-kx-navy">
+    <footer className="relative z-[2] mt-auto overflow-hidden rounded-b-[1.75rem] border-t border-white/[0.07] bg-gradient-to-b from-transparent via-kx-void/30 to-kx-void/50">
       <KxLatticeBg />
-      <div className="relative mx-auto max-w-[1400px] px-5 py-16 sm:px-8 lg:px-12 lg:py-24">
+      <div className="relative mx-auto max-w-[1400px] px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20 lg:items-start">
           <div>
             <BrandLogo variant="footer" className="opacity-95" />
@@ -101,7 +101,7 @@ export function KineticFooter() {
                         href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-kx-ink/50 text-kx-muted transition-colors hover:border-kx-gold/50 hover:text-kx-gold"
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-kx-muted transition-colors hover:border-kx-gold/45 hover:text-kx-gold"
                         aria-label={s.platform}
                       >
                         <Icon className="h-4 w-4" />

@@ -21,12 +21,6 @@ export const aboutPage = defineType({
           name: 'aboutStorySection',
           title: 'Our Story',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the headline. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', initialValue: 'Our Story' }),
             defineField({ name: 'bodyCopy', type: 'text', title: 'Body Copy', rows: 7 }),
           ],
@@ -36,12 +30,6 @@ export const aboutPage = defineType({
           name: 'aboutMissionVisionSection',
           title: 'Mission & Vision',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Shown once above the mission & vision columns. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', initialValue: 'Our Mission & Vision' }),
             defineField({ name: 'mission', type: 'text', title: 'Mission', rows: 4 }),
             defineField({ name: 'vision', type: 'text', title: 'Vision', rows: 4 }),
@@ -52,12 +40,6 @@ export const aboutPage = defineType({
           name: 'aboutValuesSection',
           title: 'Our Values',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the headline. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', initialValue: 'Our Values' }),
             defineField({ name: 'items', type: 'array', title: 'Values', of: [{ type: 'iconItem' }] }),
           ],
@@ -67,12 +49,6 @@ export const aboutPage = defineType({
           name: 'aboutTeamSection',
           title: 'Meet the Team',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the headline. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', initialValue: 'Meet the Team' }),
             defineField({ name: 'subtext', type: 'text', title: 'Subtext', rows: 3 }),
             defineField({ name: 'members', type: 'array', title: 'Team Members', of: [{ type: 'teamMember' }] }),
@@ -83,12 +59,6 @@ export const aboutPage = defineType({
           name: 'aboutFaqSection',
           title: 'FAQ',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the headline. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', initialValue: 'FAQ' }),
             defineField({ name: 'faqs', type: 'array', title: 'FAQs', of: [{ type: 'faqItem' }] }),
           ],

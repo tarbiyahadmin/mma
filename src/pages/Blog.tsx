@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { format } from "date-fns";
 import { PageSeo } from "@/components/PageSeo";
 import { getBlogPageDoc, getBlogPostsDoc } from "@/lib/sanityPageQueries";
-import { KxDisplay, KxEyebrowIf, KxPageScaffold } from "@/kinetic/KineticPrimitives";
+import { KxDisplay, KxPageScaffold } from "@/kinetic/KineticPrimitives";
 
 const Blog = () => {
   const { data: page } = useQuery({ queryKey: ["blogPage"], queryFn: getBlogPageDoc });
@@ -18,8 +18,7 @@ const Blog = () => {
       />
       <KxPageScaffold>
         <header className="mb-20 md:mb-28">
-          <KxEyebrowIf text={page?.eyebrow} />
-          <KxDisplay as="h1" className="mt-4 max-w-3xl text-4xl sm:text-5xl md:text-6xl">
+          <KxDisplay as="h1" className="max-w-3xl">
             {page?.heading || "Stories"}
           </KxDisplay>
           <p className="mt-6 max-w-xl font-body text-lg text-kx-muted">{page?.subheading}</p>
@@ -37,9 +36,9 @@ const Blog = () => {
                 <time className="font-display text-[0.65rem] font-bold uppercase tracking-[0.35em] text-kx-gold/85">
                   {post.publishedAt ? format(new Date(post.publishedAt), "MMMM d, yyyy") : ""}
                 </time>
-                <h2 className="mt-3 overflow-visible py-0.5 font-display text-2xl font-bold leading-snug tracking-tight text-kx-cream transition group-hover:text-kx-gold md:text-3xl md:leading-snug">
+                <KxDisplay as="h2" className="mt-3 transition group-hover:opacity-90">
                   {post.title}
-                </h2>
+                </KxDisplay>
                 <p className="mt-4 line-clamp-3 font-body text-kx-muted">{post.excerpt}</p>
                 <span className="mt-6 font-display text-xs font-bold uppercase tracking-[0.2em] text-kx-gold">
                   Read piece →

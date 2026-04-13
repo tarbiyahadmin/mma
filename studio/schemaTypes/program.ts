@@ -20,23 +20,8 @@ export const program = defineType({
       options: { source: 'title', maxLength: 96 },
     }),
     defineField({ name: 'title', type: 'string', title: 'Title', group: 'content', validation: (r) => r.required() }),
-    defineField({
-      name: 'heroEyebrow',
-      type: 'string',
-      title: 'Hero eyebrow (optional)',
-      group: 'content',
-      description: 'Small label above the program title. Hidden if empty.',
-    }),
     defineField({ name: 'heroSubheading', type: 'text', title: 'Hero Subheading', group: 'content', rows: 3 }),
     defineField({ name: 'heroCta', type: 'ctaButton', title: 'Hero CTA', group: 'content' }),
-    defineField({
-      name: 'mainImage',
-      type: 'image',
-      title: 'Main Image',
-      group: 'content',
-      description: 'Used on program cards and detail page.',
-      options: { hotspot: true },
-    }),
     defineField({
       name: 'shortDescription',
       type: 'text',

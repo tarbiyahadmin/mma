@@ -3,7 +3,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { KxAmbientGlow, KxGrainOverlay } from "@/kinetic/KineticDecor";
+import { KineticShell } from "@/kinetic/KineticShell";
 import { KineticHeader } from "@/kinetic/KineticHeader";
 import { KineticFooter } from "@/kinetic/KineticFooter";
 import Index from "./pages/Index";
@@ -23,9 +23,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <div className="relative flex min-h-screen flex-col">
-          <KxAmbientGlow />
-          <KxGrainOverlay />
+        <KineticShell>
           <KineticHeader />
           <div className="flex flex-1 flex-col">
             <Routes>
@@ -40,7 +38,7 @@ const App = () => (
             </Routes>
           </div>
           <KineticFooter />
-        </div>
+        </KineticShell>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

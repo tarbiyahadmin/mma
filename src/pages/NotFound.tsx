@@ -14,7 +14,11 @@ const NotFound = () => {
     <main className="kx-main flex min-h-[70vh] flex-col justify-center">
       <KxPageScaffold>
         <div className="relative mx-auto max-w-2xl text-center">
-          <KxDisplay as="h1" className="text-7xl md:text-8xl">
+          <KxDisplay
+            as="h1"
+            size="hero"
+            className="!text-[3.25rem] !leading-none sm:!text-6xl md:!text-7xl lg:!text-8xl"
+          >
             404
           </KxDisplay>
           <p className="mt-6 font-display text-sm uppercase tracking-[0.3em] text-kx-gold/85">

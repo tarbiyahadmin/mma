@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { PortableText } from "@portabletext/react";
 import { PageSeo } from "@/components/PageSeo";
 import { getBlogPostBySlugDoc } from "@/lib/sanityPageQueries";
-import { KxPageScaffold } from "@/kinetic/KineticPrimitives";
+import { KxDisplay, KxPageScaffold } from "@/kinetic/KineticPrimitives";
 import { KxFlowLine } from "@/kinetic/KineticDecor";
 
 const BlogPost = () => {
@@ -49,9 +49,9 @@ const BlogPost = () => {
           >
             ← Journal
           </Link>
-          <h1 className="mt-8 max-w-4xl overflow-visible py-1 font-display text-4xl font-extrabold leading-[1.2] tracking-tight text-kx-cream md:text-5xl md:leading-[1.18] lg:text-6xl lg:leading-[1.16]">
+          <KxDisplay as="h1" className="mt-8 max-w-4xl">
             {post.title}
-          </h1>
+          </KxDisplay>
           <KxFlowLine className="my-10 h-4 max-w-xs" />
           <div className="kx-prose mx-auto max-w-2xl pb-16">
             <PortableText value={post.body || []} />

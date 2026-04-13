@@ -21,12 +21,6 @@ export const homepage = defineType({
           name: 'homeHeroSection',
           title: 'Hero Section',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the heading. Hidden if empty.',
-            }),
             defineField({ name: 'heading', type: 'string', title: 'Heading', validation: (r) => r.required() }),
             defineField({ name: 'subheading', type: 'text', title: 'Subheading', rows: 3 }),
             defineField({ name: 'primaryCta', type: 'ctaButton', title: 'Primary CTA' }),
@@ -38,12 +32,6 @@ export const homepage = defineType({
           name: 'homeProblemSection',
           title: 'The Problem We Solve',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the headline. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', validation: (r) => r.required() }),
             defineField({ name: 'bodyCopy', type: 'text', title: 'Body Copy', rows: 5 }),
           ],
@@ -53,19 +41,13 @@ export const homepage = defineType({
           name: 'homeProgramsSection',
           title: 'Our Programs',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the headline. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', initialValue: 'Our Programs' }),
             defineField({
               name: 'cards',
               type: 'array',
               title: 'Cards',
-              description: 'Text-only on the site. Legacy image cards are accepted; images are not shown.',
-              of: [{ type: 'textLinkCard' }, { type: 'imageCard' }],
+              description: 'Text-only cards shown full width on the site.',
+              of: [{ type: 'textLinkCard' }],
             }),
           ],
         },
@@ -74,12 +56,6 @@ export const homepage = defineType({
           name: 'homeDifferenceSection',
           title: 'What Makes MMA Different',
           fields: [
-            defineField({
-              name: 'eyebrow',
-              type: 'string',
-              title: 'Eyebrow (optional)',
-              description: 'Small label above the headline. Hidden if empty.',
-            }),
             defineField({ name: 'headline', type: 'string', title: 'Headline', initialValue: 'What Makes MMA Different' }),
             defineField({ name: 'items', type: 'array', title: 'Items', of: [{ type: 'iconItem' }] }),
           ],
