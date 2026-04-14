@@ -30,6 +30,24 @@ export const program = defineType({
       description: 'Brief summary shown on the Programs listing page.',
       rows: 2,
     }),
+    defineField({
+      name: 'comingSoon',
+      type: 'boolean',
+      title: 'Coming soon',
+      group: 'content',
+      initialValue: false,
+      description:
+        'When enabled, program cards show a Coming soon state: no link, muted styling, and no hover. The program page URL still exists if someone has the link.',
+    }),
+    defineField({
+      name: 'listingOrder',
+      type: 'number',
+      title: 'Order on Programs page',
+      group: 'content',
+      initialValue: 0,
+      validation: (r) => r.integer().min(0),
+      description: 'Lower numbers appear first on /programs only. When tied, programs are sorted by title.',
+    }),
     defineField({ name: 'overview', type: 'text', title: 'Program Overview', group: 'content', validation: (r) => r.required() }),
     defineField({
       name: 'keyBenefits',

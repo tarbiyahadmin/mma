@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { PageSeo } from "@/components/PageSeo";
+import { ProgramPromoCard } from "@/components/ProgramPromoCard";
 import { getHomepagePage } from "@/lib/sanityPageQueries";
-import { programHrefFromLink } from "@/lib/programRoutes";
+import { programDetailPath, programHrefFromLink } from "@/lib/programRoutes";
 import { KxFlowLine, KxGoldGlowField, KxHeroGrid, KxHeroLighting } from "@/kinetic/KineticDecor";
 import { KxAct, KxDisplay, KxLead, KxPageScaffold } from "@/kinetic/KineticPrimitives";
 
@@ -105,33 +105,44 @@ const Index = () => {
                   </div>
                   <div className="mt-10 flex w-full flex-col gap-6 md:mt-12 md:gap-8">
                     {cards.map((card: any, i: number) => {
+                      if (card._type === "programListCard" || card.program) {
+                        const slug = card.program?.slug?.trim();
+                        if (!slug) return null;
+                        const title = String(card.title?.trim() || card.program?.title || "");
+                        const description = String(card.description?.trim() || card.program?.shortDescription || "");
+                        const comingSoon = !!card.program?.comingSoon;
+                        const href = programDetailPath(slug);
+                        const linkLabel = String(card.linkLabel?.trim() || "Enter program →");
+                        return (
+                          <ProgramPromoCard
+                            key={`program-${slug}-${i}`}
+                            variant="home"
+                            title={title}
+                            description={description}
+                            href={href}
+                            linkLabel={linkLabel}
+                            comingSoon={comingSoon}
+                          />
+                        );
+                      }
+
                       const href = programHrefFromLink(card.link);
                       const spa =
                         href !== "#" &&
                         href.startsWith("/") &&
                         !href.startsWith("//") &&
                         !/^https?:/i.test(href);
-                      const inner = (
-                        <article className="kx-slab border border-white/10 p-6 transition-transform duration-300 group-hover:-translate-y-0.5 md:p-8">
-                          <KxDisplay as="h3" size="h2">
-                            {String(card.title ?? "")}
-                          </KxDisplay>
-                          <p className="mt-3 max-w-prose font-body text-kx-muted">
-                            {String(card.description ?? "")}
-                          </p>
-                          <span className="mt-6 inline-block font-display text-xs font-bold uppercase tracking-[0.2em] text-kx-gold">
-                            {String(card.linkLabel ?? "Enter program →")}
-                          </span>
-                        </article>
-                      );
-                      return spa ? (
-                        <Link key={i} to={href} className="group block">
-                          {inner}
-                        </Link>
-                      ) : (
-                        <a key={i} href={href} className="group block">
-                          {inner}
-                        </a>
+                      return (
+                        <ProgramPromoCard
+                          key={`text-${i}`}
+                          variant="home"
+                          title={String(card.title ?? "")}
+                          description={String(card.description ?? "")}
+                          href={href}
+                          linkLabel={String(card.linkLabel ?? "Enter program →")}
+                          comingSoon={false}
+                          linkMode={spa ? "internal" : "external"}
+                        />
                       );
                     })}
                   </div>

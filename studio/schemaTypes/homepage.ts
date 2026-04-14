@@ -46,8 +46,9 @@ export const homepage = defineType({
               name: 'cards',
               type: 'array',
               title: 'Cards',
-              description: 'Text-only cards shown full width on the site.',
-              of: [{ type: 'textLinkCard' }],
+              description:
+                'Program cards (recommended): pick a program document for title, copy, Coming soon, and /programs/{slug} links. Legacy text-only cards are still supported.',
+              of: [{ type: 'programListCard' }, { type: 'textLinkCard' }],
             }),
           ],
         },

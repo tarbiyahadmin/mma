@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { PageSeo } from "@/components/PageSeo";
+import { ProgramPromoCard } from "@/components/ProgramPromoCard";
 import { getProgramsForListingDoc, getProgramsPageDoc } from "@/lib/sanityPageQueries";
 import { programDetailPath } from "@/lib/programRoutes";
 import { KxDisplay, KxPageScaffold } from "@/kinetic/KineticPrimitives";
@@ -12,12 +12,13 @@ const Programs = () => {
 
   const cards = programs
     .filter((p) => p.slug?.trim())
-    .slice(0, 6)
     .map((p) => ({
+      key: p._id,
       title: p.title,
       description: p.shortDescription,
       href: programDetailPath(p.slug),
       linkLabel: "View program",
+      comingSoon: !!p.comingSoon,
     }));
 
   return (
@@ -37,32 +38,19 @@ const Programs = () => {
         </header>
 
         <div className="flex flex-col gap-20 pb-8 md:gap-28">
-          {cards.map((card, i) => {
-            const inner = (
-              <article className="kx-slab w-full border border-white/10 p-7 shadow-kx transition duration-300 group-hover:border-kx-gold/30 md:p-10">
-                <div className="flex min-w-0 flex-1 flex-col justify-center">
-                  <span className="font-display text-[0.65rem] font-bold uppercase tracking-[0.35em] text-kx-gold/85">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <KxDisplay as="h3" size="h2" className="mt-3">
-                    {card.title}
-                  </KxDisplay>
-                  <p className="mt-4 max-w-xl font-body text-lg leading-relaxed text-kx-muted">{card.description}</p>
-                  <span className="mt-8 font-display text-xs font-bold uppercase tracking-[0.22em] text-kx-gold">
-                    {card.linkLabel || "Open →"}
-                  </span>
-                </div>
-              </article>
-            );
-
-            const wrapClass = "group block w-full";
-
-            return (
-              <Link key={`${card.href}-${i}`} to={card.href} className={wrapClass}>
-                {inner}
-              </Link>
-            );
-          })}
+          {cards.map((card, i) => (
+            <ProgramPromoCard
+              key={card.key}
+              variant="programs"
+              title={card.title}
+              description={card.description}
+              href={card.href}
+              linkLabel={card.linkLabel}
+              comingSoon={card.comingSoon}
+              showIndex
+              index={i}
+            />
+          ))}
         </div>
       </KxPageScaffold>
     </main>

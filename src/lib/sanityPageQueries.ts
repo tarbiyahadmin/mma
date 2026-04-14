@@ -55,6 +55,8 @@ export interface ProgramDoc {
   _id: string
   slug: string
   title: string
+  comingSoon?: boolean
+  listingOrder?: number
   heroSubheading?: string
   heroCta?: CtaButton
   shortDescription?: string
@@ -92,7 +94,19 @@ export interface BlogPostDoc extends BlogPostListItem {
 const HOMEPAGE_QUERY = `*[_type == "homepage"][0]{
   sections[]{
     ...,
-    cards[]{ ... },
+    cards[]{
+      _type,
+      title,
+      description,
+      link,
+      linkLabel,
+      program->{
+        "slug": slug.current,
+        title,
+        shortDescription,
+        comingSoon
+      }
+    },
     items[]{ title, description }
   },
   seo{ seoTitle, metaDescription }
@@ -113,11 +127,13 @@ const PROGRAMS_PAGE_QUERY = `*[_type == "programsPage"][0]{
   seo{ seoTitle, metaDescription }
 }`
 
-const PROGRAMS_FOR_LISTING_QUERY = `*[_type == "program" && defined(slug.current)] | order(title asc){
+const PROGRAMS_FOR_LISTING_QUERY = `*[_type == "program" && defined(slug.current)] | order(coalesce(listingOrder, 0) asc, title asc){
   _id,
   "slug": slug.current,
   title,
-  shortDescription
+  shortDescription,
+  comingSoon,
+  listingOrder
 }`
 
 const PROGRAM_BY_SLUG_QUERY = `*[_type == "program" && slug.current == $slug][0]{
