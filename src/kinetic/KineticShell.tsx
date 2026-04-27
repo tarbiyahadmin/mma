@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { KxAmbientGlow, KxGoldGlowField, KxGrainOverlay } from "@/kinetic/KineticDecor";
+import { KxAmbientGlow, KxArabicBackdrop, KxGoldGlowField, KxGrainOverlay } from "@/kinetic/KineticDecor";
 
 /**
  * Outer atmosphere + centered framed surface (reference-style “device” frame).
@@ -7,6 +7,7 @@ import { KxAmbientGlow, KxGoldGlowField, KxGrainOverlay } from "@/kinetic/Kineti
 export function KineticShell({ children }: { children: ReactNode }) {
   return (
     <div className="relative min-h-screen overflow-x-hidden">
+      <KxArabicBackdrop />
       <KxAmbientGlow />
       <KxGrainOverlay />
       <div className="relative z-[2] mx-auto max-w-[1440px] px-3 py-3 sm:px-5 sm:py-5 md:px-6 md:py-6">

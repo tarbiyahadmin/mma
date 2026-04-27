@@ -53,7 +53,7 @@ export function ProgramPromoCard({
         comingSoon
           ? "border-white/[0.07] opacity-[0.78] shadow-none saturate-[0.88]"
           : cn(
-              "border-white/10 transition duration-300 group-hover:border-kx-gold/30",
+              "border-kx-secondary/14 transition duration-300 group-hover:border-kx-secondary/35 group-hover:shadow-[0_0_0_1px_rgb(173_154_148/0.12)]",
               variant === "programs" && "shadow-kx",
               variant === "home" && "transition-transform duration-300 group-hover:-translate-y-0.5",
             ),
@@ -64,7 +64,7 @@ export function ProgramPromoCard({
         {showIndex || comingSoon ? (
           <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
             {showIndex ? (
-              <span className="font-display text-[0.65rem] font-bold uppercase tracking-[0.35em] text-kx-gold/85">
+              <span className="font-display text-[0.65rem] font-bold uppercase tracking-[0.35em] text-kx-primary/85">
                 {String(index + 1).padStart(2, "0")}
               </span>
             ) : null}
@@ -89,7 +89,7 @@ export function ProgramPromoCard({
         {!comingSoon ? (
           <span
             className={cn(
-              "inline-block font-display text-xs font-bold uppercase text-kx-gold",
+              "inline-block font-display text-xs font-bold uppercase text-kx-primary",
               variant === "programs" ? "mt-8 tracking-[0.22em]" : "mt-6 tracking-[0.2em]",
             )}
           >

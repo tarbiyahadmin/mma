@@ -43,7 +43,7 @@ export function KineticFooter() {
   };
 
   return (
-    <footer className="relative z-[2] mt-auto overflow-hidden rounded-b-[1.75rem] border-t border-white/[0.07] bg-gradient-to-b from-transparent via-kx-void/30 to-kx-void/50">
+    <footer className="relative z-[2] mt-auto overflow-hidden rounded-b-[1.75rem] border-t border-kx-secondary/20 bg-gradient-to-b from-kx-secondary/[0.06] via-kx-void/35 to-kx-void/55">
       <KxLatticeBg />
       <div className="relative mx-auto max-w-[1400px] px-5 py-16 sm:px-8 lg:px-10 lg:py-24">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20 lg:items-start">
@@ -56,7 +56,7 @@ export function KineticFooter() {
 
           <div className="grid gap-12 sm:grid-cols-2 sm:gap-10">
             <div>
-              <p className="mb-1 overflow-visible py-1 font-display text-[0.65rem] font-bold uppercase leading-normal tracking-[0.35em] text-kx-gold">
+              <p className="mb-1 overflow-visible py-1 font-display text-[0.65rem] font-bold uppercase leading-normal tracking-[0.35em] text-kx-secondary">
                 Explore
               </p>
               <ul className="mt-3 space-y-3">
@@ -64,7 +64,7 @@ export function KineticFooter() {
                   <li key={link.to}>
                     <Link
                       to={link.to}
-                      className="block overflow-visible py-0.5 font-display text-xl font-bold leading-snug tracking-tight text-kx-cream hover:text-kx-gold"
+                      className="block overflow-visible py-0.5 font-display text-xl font-bold leading-snug tracking-tight text-kx-cream hover:text-kx-secondary"
                     >
                       {link.label}
                     </Link>
@@ -73,21 +73,21 @@ export function KineticFooter() {
               </ul>
             </div>
 
-            <div className="sm:border-l sm:border-white/10 sm:pl-10">
-              <p className="mb-1 overflow-visible py-1 font-display text-[0.65rem] font-bold uppercase leading-normal tracking-[0.35em] text-kx-gold">
+            <div className="sm:border-l sm:border-kx-secondary/15 sm:pl-10">
+              <p className="mb-1 overflow-visible py-1 font-display text-[0.65rem] font-bold uppercase leading-normal tracking-[0.35em] text-kx-secondary">
                 Contact
               </p>
               <ul className="mt-3 space-y-4 text-sm leading-relaxed text-kx-muted">
                 <li className="flex gap-3">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-kx-gold/80" />
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-kx-altSecondary" />
                   <span>{address}</span>
                 </li>
                 <li className="flex gap-3">
-                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-kx-gold/80" />
+                  <Phone className="mt-0.5 h-4 w-4 shrink-0 text-kx-altSecondary" />
                   <span>{phone}</span>
                 </li>
                 <li className="flex gap-3">
-                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-kx-gold/80" />
+                  <Mail className="mt-0.5 h-4 w-4 shrink-0 text-kx-altSecondary" />
                   <span>{email}</span>
                 </li>
               </ul>
@@ -101,7 +101,7 @@ export function KineticFooter() {
                         href={s.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-kx-muted transition-colors hover:border-kx-gold/45 hover:text-kx-gold"
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-kx-secondary/15 bg-white/[0.04] text-kx-muted transition-colors hover:border-kx-secondary/40 hover:text-kx-secondary"
                         aria-label={s.platform}
                       >
                         <Icon className="h-4 w-4" />
@@ -114,13 +114,13 @@ export function KineticFooter() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-16 flex flex-col gap-4 border-t border-kx-secondary/12 pt-10 sm:flex-row sm:items-center sm:justify-between">
           <p className="overflow-visible py-0.5 font-display text-xs uppercase leading-normal tracking-[0.2em] text-kx-muted/80">
             {copyrightText}
           </p>
           <Link
             to="/programs"
-            className="overflow-visible py-0.5 font-display text-xs font-bold uppercase leading-normal tracking-[0.25em] text-kx-gold hover:text-kx-cream"
+            className="overflow-visible py-0.5 font-display text-xs font-bold uppercase leading-normal tracking-[0.25em] text-kx-secondary hover:text-kx-cream"
           >
             Explore programs →
           </Link>

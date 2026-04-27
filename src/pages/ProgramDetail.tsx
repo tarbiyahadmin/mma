@@ -48,7 +48,7 @@ const ProgramDetail = () => {
       <KxPageScaffold>
         <Link
           to="/programs"
-          className="font-display text-xs font-bold uppercase tracking-[0.22em] text-kx-gold hover:text-kx-cream"
+          className="font-display text-xs font-bold uppercase tracking-[0.22em] text-kx-primary hover:text-kx-cream"
         >
           ← Programs
         </Link>
@@ -82,7 +82,7 @@ const ProgramDetail = () => {
             <KxDisplay as="h2">Key benefits</KxDisplay>
             <div className="mt-10 max-w-2xl space-y-8">
               {program.keyBenefits.map((item: any, i: number) => (
-                <div key={i} className="border-l-2 border-kx-gold/35 pl-6">
+                <div key={i} className="border-l-2 border-kx-primary/35 pl-6">
                   <KxDisplay as="h3" className="!text-lg md:!text-xl">
                     {item.title}
                   </KxDisplay>
@@ -101,7 +101,7 @@ const ProgramDetail = () => {
                 const n = step.stepNumber ?? i + 1;
                 return (
                   <li key={i} className="flex gap-6">
-                    <span className="font-display text-3xl font-extrabold text-kx-gold/35">{n}</span>
+                    <span className="font-display text-3xl font-extrabold text-kx-primary/35">{n}</span>
                     <div>
                       <KxDisplay as="h3" className="!text-lg md:!text-xl">
                         {step.title}
@@ -157,7 +157,7 @@ const ProgramDetail = () => {
             <div className="mt-8 grid gap-5 md:grid-cols-2">
               {program.eventsSection?.map((event, i) => (
                 <article key={i} className="kx-slab border border-white/10 p-6 md:p-7">
-                  <p className="font-display text-[0.65rem] font-bold uppercase tracking-[0.28em] text-kx-gold/85">
+                  <p className="font-display text-[0.65rem] font-bold uppercase tracking-[0.28em] text-kx-primary/85">
                     {event.dateLabel || "Session"}
                   </p>
                   <KxDisplay as="h3" className="mt-3">
@@ -180,7 +180,7 @@ const ProgramDetail = () => {
               ))}
             </div>
           ) : (
-            <div className="relative mt-8 overflow-hidden rounded-2xl border border-kx-gold/20 bg-kx-cream/[0.03] p-8 text-center shadow-kx md:p-12">
+            <div className="relative mt-8 overflow-hidden rounded-2xl border border-kx-primary/20 bg-kx-cream/[0.03] p-8 text-center shadow-kx md:p-12">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(228,189,84,0.14)_0%,rgba(228,189,84,0.05)_35%,transparent_72%)]" />
               <div className="relative mx-auto max-w-2xl">
                 <KxDisplay as="h3">No upcoming sessions</KxDisplay>
@@ -188,7 +188,7 @@ const ProgramDetail = () => {
                   This program is currently between cohorts. Join the waitlist to be the first to hear when the next session opens.
                 </p>
                 {program.cohortStatus?.nextIntake ? (
-                  <p className="mt-5 font-display text-xs font-bold uppercase tracking-[0.22em] text-kx-gold">
+                  <p className="mt-5 font-display text-xs font-bold uppercase tracking-[0.22em] text-kx-primary">
                     Next intake: {program.cohortStatus.nextIntake}
                   </p>
                 ) : null}

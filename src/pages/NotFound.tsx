@@ -21,7 +21,7 @@ const NotFound = () => {
           >
             404
           </KxDisplay>
-          <p className="mt-6 font-display text-sm uppercase tracking-[0.3em] text-kx-gold/85">
+          <p className="mt-6 font-display text-sm uppercase tracking-[0.3em] text-kx-primary/85">
             Off the map
           </p>
           <p className="mt-4 font-body text-kx-muted">
@@ -29,7 +29,7 @@ const NotFound = () => {
           </p>
           <Link
             to="/"
-            className="kx-btn-solid mt-12 inline-flex rounded-xl px-8 py-3.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-kx-void shadow-kx-lift transition hover:-translate-y-0.5"
+            className="kx-btn-solid mt-12 inline-flex rounded-xl px-8 py-3.5 font-display text-xs font-bold uppercase tracking-[0.2em] text-kx-cream shadow-kx-lift transition hover:-translate-y-0.5"
           >
             Home
           </Link>

@@ -36,12 +36,12 @@ function NavItemView({
   const isBtn = link.isButton === true;
 
   const btnCls = mobile
-    ? "kx-btn-solid mx-auto mt-2 block w-full max-w-md rounded-full px-5 py-3.5 text-center font-display text-xs font-bold uppercase tracking-[0.18em] text-kx-void shadow-kx-glow-gold"
-    : "kx-btn-solid inline-flex items-center justify-center rounded-full px-5 py-2.5 font-display text-xs font-bold uppercase tracking-[0.18em] text-kx-void shadow-kx-glow-gold transition-all hover:-translate-y-0.5";
+    ? "kx-btn-solid mx-auto mt-2 block w-full max-w-md rounded-full px-5 py-3.5 text-center font-display text-xs font-bold uppercase tracking-[0.18em] text-kx-cream shadow-kx-glow-gold"
+    : "kx-btn-solid inline-flex items-center justify-center rounded-full px-5 py-2.5 font-display text-xs font-bold uppercase tracking-[0.18em] text-kx-cream shadow-kx-glow-gold transition-all hover:-translate-y-0.5";
 
   const textCls = mobile
     ? `block w-full rounded-xl px-4 py-4 text-left font-display text-base font-semibold tracking-tight transition-colors active:scale-[0.99] ${
-        active ? "bg-white/[0.07] text-kx-gold" : "text-kx-cream hover:bg-white/[0.05]"
+        active ? "bg-white/[0.07] text-kx-primary" : "text-kx-cream hover:bg-white/[0.05]"
       }`
     : undefined;
 

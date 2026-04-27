@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import type { ElementType, ReactNode } from "react";
-import { KxGoldGlowField } from "@/kinetic/KineticDecor";
+import { KxArabicSectionArt, KxGoldGlowField } from "@/kinetic/KineticDecor";
 import { cn } from "@/lib/utils";
 
 /** Shared scale: hero (home only) → h1 page titles → h2 sections → h3 cards / subsections */
@@ -106,15 +106,15 @@ export function KxAct({
 }: ActProps) {
   const external = isExternal || /^https?:\/\//i.test(to);
   const base =
-    "inline-flex items-center justify-center px-8 py-3.5 font-display text-[0.8125rem] font-semibold uppercase tracking-[0.16em] rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-kx-gold/60";
+    "inline-flex items-center justify-center px-8 py-3.5 font-display text-[0.8125rem] font-semibold uppercase tracking-[0.16em] rounded-full transition-all duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-kx-primary/60";
   const solidBrand =
     "kx-btn-solid shadow-kx-glow-gold hover:-translate-y-0.5 hover:brightness-105 active:translate-y-0";
   const outlineBrand =
-    "border border-kx-gold/45 bg-kx-gold/[0.06] text-kx-gold-bright shadow-[0_0_0_1px_rgb(165_123_2/0.15)] backdrop-blur-sm hover:bg-kx-gold/12";
+    "border border-kx-primary/45 bg-kx-primary/[0.06] text-kx-secondary shadow-[0_0_0_1px_rgb(106_80_118/0.2)] backdrop-blur-sm hover:bg-kx-primary/12";
   const solidHero =
-    "border border-white/[0.1] bg-[#0a1024] text-kx-cream shadow-[0_0_0_1px_rgb(255_255_255/0.06),0_0_48px_-12px_rgb(212_162_10/0.28)] hover:border-kx-gold/35 hover:bg-[#0d152e] hover:shadow-[0_0_56px_-8px_rgb(212_162_10/0.38)]";
+    "border border-white/[0.1] bg-[#1a1422] text-kx-cream shadow-[0_0_0_1px_rgb(255_255_255/0.06),0_0_48px_-12px_rgb(106_80_118/0.26)] hover:border-kx-primary/35 hover:bg-[#221a2c] hover:shadow-[0_0_56px_-8px_rgb(106_80_118/0.32)]";
   const outlineHero =
-    "border border-white/15 bg-white/[0.04] text-kx-cream/95 backdrop-blur-sm hover:border-kx-gold/35 hover:bg-white/[0.07]";
+    "border border-white/15 bg-white/[0.04] text-kx-cream/95 backdrop-blur-sm hover:border-kx-primary/35 hover:bg-white/[0.07]";
 
   const cls =
     `${base} ${
@@ -154,7 +154,7 @@ export function KxTextNav({
     <Link
       to={to}
       className={`font-display text-[0.78rem] font-semibold uppercase tracking-[0.16em] transition-colors ${
-        active ? "text-kx-gold" : "text-kx-cream/70 hover:text-kx-cream"
+        active ? "text-kx-primary" : "text-kx-cream/70 hover:text-kx-cream"
       }`}
     >
       {children}
@@ -165,8 +165,9 @@ export function KxTextNav({
 export function KxPageScaffold({ children }: { children: ReactNode }) {
   return (
     <div className="relative mx-auto w-full max-w-[1400px] px-5 sm:px-8 lg:px-10">
-      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden rounded-[inherit]">
         <KxGoldGlowField variant="page" />
+        <KxArabicSectionArt variant="page-edge" className="hidden md:block" />
       </div>
       <div className="relative z-[1]">{children}</div>
     </div>

@@ -3,7 +3,13 @@ import { PageSeo } from "@/components/PageSeo";
 import { ProgramPromoCard } from "@/components/ProgramPromoCard";
 import { getHomepagePage } from "@/lib/sanityPageQueries";
 import { programDetailPath, programHrefFromLink } from "@/lib/programRoutes";
-import { KxFlowLine, KxGoldGlowField, KxHeroGrid, KxHeroLighting } from "@/kinetic/KineticDecor";
+import {
+  KxArabicSectionArt,
+  KxFlowLine,
+  KxGoldGlowField,
+  KxHeroGrid,
+  KxHeroLighting,
+} from "@/kinetic/KineticDecor";
 import { KxAct, KxDisplay, KxLead, KxPageScaffold } from "@/kinetic/KineticPrimitives";
 
 const Index = () => {
@@ -23,11 +29,12 @@ const Index = () => {
       <main className="kx-main">
         {heroSection && heroSection._type === "homeHeroSection" && (
           <section className="relative mb-12 w-full md:mb-20">
-            <div className="relative min-h-[min(78vh,52rem)] overflow-hidden">
+            <div className="relative min-h-[min(78vh,52rem)] overflow-hidden rounded-[inherit]">
+              <KxArabicSectionArt variant="hero-tr" />
               <KxGoldGlowField variant="hero" />
               <KxHeroGrid />
               <KxHeroLighting />
-              <div className="relative mx-auto flex max-w-[1400px] flex-col items-center px-5 pb-12 pt-10 text-center sm:px-8 md:pb-16 md:pt-14 lg:px-10">
+              <div className="relative z-[1] mx-auto flex max-w-[1400px] flex-col items-center px-5 pb-12 pt-10 text-center sm:px-8 md:pb-16 md:pt-14 lg:px-10">
                 <div className="mb-8 flex w-full items-center justify-center gap-2.5 md:mb-10">
                   <span className="relative flex h-2 w-2">
                     <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/35" />
@@ -66,7 +73,7 @@ const Index = () => {
                   )}
                 </div>
 
-                <div className="mt-16 h-px w-24 bg-gradient-to-r from-transparent via-kx-gold/40 to-transparent md:mt-20" />
+                <div className="mt-16 h-px w-24 bg-gradient-to-r from-transparent via-kx-secondary/50 to-transparent md:mt-20" />
               </div>
             </div>
           </section>
@@ -82,7 +89,10 @@ const Index = () => {
                   key={`problem-${idx}`}
                   className={`relative text-left ${firstBelowHero ? "mb-16 md:mb-20" : "mb-24 md:mb-32"}`}
                 >
-                  <div className={firstBelowHero ? "max-w-2xl" : "max-w-3xl"}>
+                  <KxArabicSectionArt variant="section-tall" />
+                  <div
+                    className={`relative z-[1] kx-section-wash p-8 md:p-10 ${firstBelowHero ? "max-w-2xl" : "max-w-3xl"}`}
+                  >
                     <KxDisplay as="h2">{String(section.headline ?? "")}</KxDisplay>
                     <KxFlowLine className={`my-6 h-4 max-w-xs ${firstBelowHero ? "" : "md:my-8"}`} />
                     <p className="font-body text-lg leading-relaxed text-kx-muted md:text-xl whitespace-pre-line">
@@ -100,7 +110,8 @@ const Index = () => {
                   key={`programs-${idx}`}
                   className={`relative ${firstBelowHero ? "mb-16 md:mb-20" : "mb-24 md:mb-32"}`}
                 >
-                  <div className={firstBelowHero ? "max-w-2xl text-left" : "max-w-3xl"}>
+                  <KxArabicSectionArt variant="section-br" className="opacity-50 md:opacity-60" />
+                  <div className={`relative z-[1] ${firstBelowHero ? "max-w-2xl text-left" : "max-w-3xl"}`}>
                     <KxDisplay as="h2">{String(section.headline ?? "Our programs")}</KxDisplay>
                   </div>
                   <div className="mt-10 flex w-full flex-col gap-6 md:mt-12 md:gap-8">
@@ -154,15 +165,16 @@ const Index = () => {
               const items = Array.isArray(section.items) ? section.items : [];
               return (
                 <section key={`diff-${idx}`} className="relative mb-20 md:mb-28">
-                  <div className="mb-10 border-b border-white/10 pb-8 md:mb-12">
+                  <KxArabicSectionArt variant="hero-bl" />
+                  <div className="relative z-[1] mb-10 rounded-2xl border border-kx-secondary/15 bg-gradient-to-r from-kx-secondary/[0.08] via-transparent to-kx-altSecondary/[0.06] px-1 pb-8 pt-2 md:mb-12 md:px-2 md:pb-10 md:pt-3">
                     <KxDisplay as="h2" className="max-w-xl">
                       {String(section.headline ?? "What makes us different")}
                     </KxDisplay>
                   </div>
-                  <div className="relative max-w-2xl border-l-2 border-kx-gold/50 pl-8 md:pl-10">
+                  <div className="relative z-[1] max-w-2xl border-l-2 border-kx-secondary/45 pl-8 md:pl-10">
                     {items.map((item: any, i: number) => (
                       <div key={i} className="relative pb-12 last:pb-2">
-                        <span className="font-display absolute -left-[2.125rem] top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-lg border border-kx-gold/50 bg-kx-void text-sm font-extrabold text-kx-gold md:-left-[2.625rem]">
+                        <span className="font-display absolute -left-[2.125rem] top-0 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-lg border border-kx-secondary/50 bg-kx-void text-sm font-extrabold text-kx-secondary md:-left-[2.625rem]">
                           {i + 1}
                         </span>
                         <KxDisplay as="h3">{String(item.title ?? "")}</KxDisplay>

@@ -45,7 +45,7 @@ const BlogPost = () => {
         <KxPageScaffold>
           <Link
             to="/blog"
-            className="font-display text-xs font-bold uppercase tracking-[0.25em] text-kx-gold hover:text-kx-cream"
+            className="font-display text-xs font-bold uppercase tracking-[0.25em] text-kx-primary hover:text-kx-cream"
           >
             ← Journal
           </Link>
